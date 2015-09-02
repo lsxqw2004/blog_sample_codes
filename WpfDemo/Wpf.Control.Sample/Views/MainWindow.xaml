@@ -1,0 +1,13 @@
+﻿<Window x:Class="Wpf.Control.Sample.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Width="800" Height="600"
+        DataContext="{Binding Main, Source={StaticResource Locator}}">
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Button Command="{Binding SampleClickCommand}" CommandParameter="1">Flow Control</Button>
+            <Button Command="{Binding SampleClickCommand}" CommandParameter="2">CircleMenu Control</Button>
+        </StackPanel>
+        <Frame x:Name="SampleContainer" NavigationUIVisibility="Hidden" Source="CircleMenuSample.xaml"></Frame>
+    </StackPanel>
+</Window>
