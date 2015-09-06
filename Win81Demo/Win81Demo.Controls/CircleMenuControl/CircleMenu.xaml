@@ -1,0 +1,88 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:circleMenuControl="using:Win81Demo.Controls.CircleMenuControl">
+
+    <Style TargetType="circleMenuControl:CircleMenu">
+        <Setter Property="BorderThickness" Value="0" ></Setter>
+        <Setter Property="Background" Value="CadetBlue"></Setter>
+        <Setter Property="SubMenuStyle">
+            <Setter.Value>
+                <Style TargetType="Button">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <!-- width&height: subRadius -->
+                                <Border CornerRadius="15" Background="Coral" Width="30" Height="30" >
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="circleMenuControl:CircleMenu">
+                    <!-- templateWidth: CtrlSize -->
+                    <Grid x:Name="PART_Container" VerticalAlignment="Top" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Initial">
+                                    <Storyboard >
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_Panel"
+                                                                       Storyboard.TargetProperty="PanelStatus">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Initial" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Collapsed">
+                                    <Storyboard >
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_Panel"
+                                                                       Storyboard.TargetProperty="PanelStatus">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Expanded">
+                                    <Storyboard >
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="PART_Panel" 
+                                                                       Storyboard.TargetProperty="PanelStatus">
+                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Expanded" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <!-- radius: ShadowRaidus -->
+                        <Ellipse Width="{TemplateBinding ShadowSize}" Height="{TemplateBinding ShadowSize}" Fill="#66559977"></Ellipse>
+
+                        <circleMenuControl:CircleMenuPanel x:Name="PART_Panel" PanelStatus="Initial"
+                                                    AnimationDuration="{TemplateBinding CircleDuration}" 
+                                                    AnimationDurationStep="{TemplateBinding CircleDurationStep}"
+                                                    Radius="{TemplateBinding ShadowRadius}" Angle="360"  >
+                        </circleMenuControl:CircleMenuPanel>
+
+                        <!-- 这个CornerRadius不能通过TemplateBinding赋值呢，为啥呢 -->
+                        <Border x:Name="PART_CenterBtn" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                CornerRadius="15" 
+                                Width="{TemplateBinding CenterSize}" Height="{TemplateBinding CenterSize}"
+                                Tag="Main"
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                Background="{TemplateBinding Background}">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center"
+                                       Foreground="{TemplateBinding Foreground}"
+                                       Text="{TemplateBinding CenterMenu}">
+
+                            </TextBlock>
+                        </Border>
+                    </Grid>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
