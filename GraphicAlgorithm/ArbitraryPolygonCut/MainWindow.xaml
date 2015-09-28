@@ -1,0 +1,43 @@
+﻿<Window x:Class="WpfApplication1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="200"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Button x:Name="ButtonDrawS" Margin="0 0 20 0" Click="BeginPolygonS">添加实体多边形</Button>
+            <Button x:Name="ButtonDrawC" Margin="0 0 20 0" Click="BeginPolygonC">添加裁剪多边形</Button>
+            <Button x:Name="ButtonCut" Margin="0 0 20 0" Click="Cut">裁剪</Button>
+            <CheckBox x:Name="CkbShowDirection" Margin="0 9 20 0" Click="ShowDirectionChanged" >显示方向</CheckBox>
+            <Button x:Name="ButtonReset" Margin="0 0 20 0" Click="Reset">重置</Button>
+            <Button x:Name="ButtonSave" Margin="0 0 20 0" Click="Save">保存</Button>
+            <ComboBox x:Name="LoadBox" IsEditable="False" Margin="0 0 20 0" Width="150" />
+            <Button x:Name="ButtonLoad" Margin="0 0 20 0" Click="LoadCut">加载</Button>
+        </StackPanel>
+
+        <TextBlock x:Name="Status" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
+
+        <Canvas x:Name="Canvas" Grid.Row="1" Background="OldLace" 
+                MouseMove="MoveOver"
+                MouseLeftButtonUp="DrawAPoint"
+                MouseRightButtonUp="EndPolyline"
+                >
+            <TextBlock x:Name="PointVec"></TextBlock>
+
+        </Canvas>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="2">
+            <TextBlock x:Name="LogTextbox" >
+
+            </TextBlock>
+        </ScrollViewer>
+    </Grid>
+</Window>

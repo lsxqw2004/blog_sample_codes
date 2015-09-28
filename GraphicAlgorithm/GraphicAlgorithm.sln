@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Doc", "Doc", "{06E260AB-290A-4C0E-984C-CF7B9D4C74D5}"
+	ProjectSection(SolutionItems) = preProject
+		Doc\示意图.vsd = Doc\示意图.vsd
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArbitraryPolygonCut", "ArbitraryPolygonCut\ArbitraryPolygonCut.csproj", "{2948D2A6-F19E-4DBF-A7F8-EA5BF96DFAEF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2948D2A6-F19E-4DBF-A7F8-EA5BF96DFAEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2948D2A6-F19E-4DBF-A7F8-EA5BF96DFAEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2948D2A6-F19E-4DBF-A7F8-EA5BF96DFAEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2948D2A6-F19E-4DBF-A7F8-EA5BF96DFAEF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
