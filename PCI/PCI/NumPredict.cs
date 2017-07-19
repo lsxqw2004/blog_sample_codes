@@ -82,7 +82,7 @@ namespace ConsoleApplication1
         {
             public int Compare(double x, double y)
             {
-                if (x == y) //这样可以让SortedList保存重复的key
+                if (x == y) //这样可以让SortedDictionary保存重复的key
                     return 1;
                 return x.CompareTo(y); //从小到大排序
             }
